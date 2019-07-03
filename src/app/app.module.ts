@@ -10,6 +10,7 @@ import { TasksService } from './shared/task.service';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import{utilisateurservice}from'./shared/utilisateur.service';
 
 
 @NgModule({
@@ -28,7 +29,11 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent,
     
   ],
-  providers: [TasksService],
+  
+  providers: [TasksService,utilisateurservice],
   bootstrap: [AppComponent]
+  
+  
+  
 })
 export class AppModule { }

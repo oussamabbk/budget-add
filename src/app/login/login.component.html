@@ -17,15 +17,17 @@
             name="Username"
             placeholder="Username"
             required=""
+            <input [(ngModel)]="description" name="description" matInput placeholder="Enter a description for your task here. (optional)">
           />-->
 
             <input
+              [(ngModel)]="email"
               class="text email"
               type="email"
               name="email"
               placeholder="Email"
               required=""
-              #email
+              #email1
             />
             <input
               class="text w3lpass"
@@ -39,7 +41,7 @@
               <div class="clear"></div>
             </div>
             <input
-              (click)="onedit(email.value, password.value)"
+              (click)="verifUtilisateur(email1.value,password.value)"
               type="submit"
               value="VALIDER"
             />

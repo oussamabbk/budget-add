@@ -23,7 +23,13 @@
 
     },
     "validations": [],
-    "relations": {},
+    "relations": {
+      "utilisateur":{
+        "type":"hasMany",
+        "model":"utilisateur",
+        "foreignKey":"utilisateurId"
+      }
+    },
     "acls": [],
     "methods": {}
   }

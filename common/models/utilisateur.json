@@ -9,8 +9,8 @@
     
     "properties": {
       "email": {
-        "type": "string"
-        
+        "type": "string",
+        "required": true
         
       },
 
@@ -31,7 +31,24 @@
 
     },
     "validations": [],
-    "relations": {},
+    "relations": {
+      "addresse":{
+        "type":"hasMany",
+        "model":"adresse",
+        "foreignKey":"addresseId"
+      },
+      "dep-rev":{
+        "type":"hasMany",
+        "model":"deprev",
+        "deprev":"deprevId"
+      },
+      "compte":{
+        "type":"hasMany",
+        "model":"compte",
+        "deprev":"compteId"
+      }
+      
+    },
     "acls": [],
     "methods": {}
   }

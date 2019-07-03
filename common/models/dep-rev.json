@@ -33,7 +33,13 @@
       }
     },
     "validations": [],
-    "relations": {},
+    "relations": {
+      "utilisateur":{
+        "type":"hasOne",
+        "model":"utilisateur",
+        "foreignKey":"utilisateurId"
+      }
+    },
     "acls": [],
     "methods": {}
   }
