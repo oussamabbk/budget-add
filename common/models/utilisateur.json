@@ -1,0 +1,38 @@
+{
+    "name": "utilisateur",
+    "plural": "utilisateurs",
+    "base": "PersistedModel",
+    
+    "options": {
+      "validateUpsert": true
+    },
+    
+    "properties": {
+      "email": {
+        "type": "string"
+        
+        
+      },
+
+      "nom": {
+        "type": "string",
+        "required": true
+      },
+
+      "prenom": {
+        "type": "string",
+        "required": true
+      },
+
+      "password": {
+        "type": "string",
+        "required": true
+      }
+
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

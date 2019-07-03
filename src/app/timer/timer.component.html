@@ -1,0 +1,216 @@
+
+
+
+
+
+
+
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">date_range</i>
+              </div>
+              <p class="card-category">aujourd'hui</p>
+              <h3 class="card-title">
+                <!-- <h3 class="card-title"> -->
+                <small>{{ currentDate }}</small>
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">hourglass_empty</i>
+                <!--<i class="material-icons text-danger"></i>-->
+                <a> {{ Jour }} {{ currentTime }} </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">local_atm</i>
+              </div>
+              <p class="card-category">Solde total</p>
+              <h3 class="card-title">£34,245</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">date_range</i> maintenant
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-danger card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">security</i>
+              </div>
+              <p class="card-category">numéro de compte</p>
+              <h3 class="card-title">7575.7575</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">update</i> actuellement
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">account_balance</i>
+              </div>
+              <p class="card-category">nom de banque</p>
+              <h3 class="card-title">tunisie</h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">update</i> actuellement
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header oussama">
+              <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">budget aujourd'hui</h4>
+              <p class="card-category">
+                <span class="text-success"
+                  ><i class="fa  fa-arrow-up"></i> plus élevé 100 £
+                </span>
+                <br />
+                <span class="text-failed"
+                  ><i class="fa fa-arrow-down"></i> plus élevé 100 £
+                </span>
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons" material-icon>access_time</i> updated 4
+                minutes ago
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-warning">
+              <div class="ct-chart" id="websiteViewsChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">budget cette mois</h4>
+              <p class="card-category">
+                <span class="text-success"
+                  ><i class="fa  fa-arrow-up"></i> jour plus élevé 100 £
+                </span>
+                <br />
+                <span class="text-failed"
+                  ><i class="fa fa-arrow-down"></i> jour plus bas 100 £
+                </span>
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> campaign sent 2 days ago
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4">
+          <div class="card card-chart">
+            <div class="card-header card-header-danger">
+              <div class="ct-chart" id="completedTasksChart"></div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">budget cette année</h4>
+              <p class="card-category">
+                <span class="text-success"
+                  ><i class="fa  fa-arrow-up"></i> mois plus élevé 100 £
+                </span>
+                <br />
+                <span class="text-failed"
+                  ><i class="fa fa-arrow-down"></i> mois plus bas 100 £
+                </span>
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">access_time</i> campaign sent 2 days ago
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <button mat-fab id="add-button" data-toggle="dropdown" class="btn-circle">
+          <i class="material-icons">attach_money</i>
+          <div class="dropdown-menu">
+            <a class="dropdown-item ">ajouter dépenses</a>
+            <a class="dropdown-item">ajouter revenus</a>
+          </div>
+        </button>
+      </div>
+  
+      
+    </div>
+  </div>
+<!--
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Today's Task</h4>
+                      <p class="card-category">Start a task</p>
+                  </div>
+                  <div class="card-body">
+                        <div class="card-header">
+                                <h1 align="center" class="card-title" *ngIf="hours<10 && minutes<10 && seconds<10;">0{{hours}}:0{{minutes}}:0{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours<10 && minutes<10 && seconds>=10;">0{{hours}}:0{{minutes}}:{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours<10 && minutes>=10 && seconds<10;">0{{hours}}:{{minutes}}:0{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours<10 && minutes>=10 && seconds>=10;">0{{hours}}:{{minutes}}:{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours>=10 && minutes<10 && seconds<10;">{{hours}}:0{{minutes}}:0{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours>=10 && minutes<10 && seconds>=10;">{{hours}}:0{{minutes}}:{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours>=10 && minutes>=10 && seconds<10;">{{hours}}:{{minutes}}:0{{seconds}}</h1>
+                                <h1 align="center" class="card-title" *ngIf="hours>=10 && minutes>=10 && seconds>=10;">{{hours}}:{{minutes}}:{{seconds}}</h1>
+                            </div>
+                      <form>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <label>Task description</label>
+                                <mat-form-field class="example-full-width">
+                                   <textarea [(ngModel)]="description" name="description" matInput placeholder="Enter a description for your task here. (optional)"></textarea>
+                                 </mat-form-field>
+                              </div>
+                          </div>
+                          <div align="center">
+                                <div class="stats">
+                                    <button mat-raised-button type="submit" id="btnplay" *ngIf="activePlayBtn===false;" (click)="playTime()" class="btn btn-success">&#9658;</button>
+                                    <button mat-raised-button type="submit" id="btnplay" *ngIf="activePlayBtn===true;" (click)="onResumeTime()" class="btn btn-success">&#9658;</button>
+                                    <button mat-raised-button type="submit" id="btnpause" (click)="pauseTime()" [disabled]="activePauseBtn===false" class="btn btn-info">&#9646;&#9646;</button>
+                                    <button mat-raised-button type="submit" (click)="stopTime()" [disabled]="activeStopBtn===false" class="btn btn-danger">&#9632;</button>
+                                </div>
+                            </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>-->

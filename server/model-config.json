@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "task": {
+    "dataSource": "mongo1",
+    "public": false
+  },
+  "utilisateur": {
+    "dataSource": "existe",
+    "public": true
+        
+  },
+  "compte":{
+    "dataSource":"existe",
+    "public":true
+  },
+  "deprev":{
+    "dataSource":"historique",
+    "public":true
+  },
+  "adresse":{
+    "dataSource":"existe",
+    "public":true
+  }
+
+}

@@ -1,0 +1,153 @@
+<div id="style-default">
+  <div class="body">
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+      <br />
+      <h1>crée un compte</h1>
+
+      <div class="main-agileinfo">
+        <div class="agileits-top">
+          <form action="#" method="post">
+            <img
+              src="assets/img/money-bag.svg"
+              alt="remplir les information"
+              class="logo"
+              width="50"
+              height="50"
+              position="absolute"
+            />
+            <div>
+              <input
+                class="text w3lpass"
+                type="email"
+                name="Username"
+                required
+                aria-placeholder="erreur"
+                placeholder="ecrivez votre nom"
+                #naa
+                (click)="aftercheked()"
+                [ngClass]="designName === false ? 'avecerreur' : ''"
+              />
+            </div>
+
+            <div>
+              <input
+                class="text email"
+                type="email"
+                name="email"
+                placeholder="email "
+                aria-placeholder="erreur"
+                required
+                #email1
+                (click)="afterchekedemail()"
+                [ngClass]="designEmail === false ? 'avecerreur' : ''"
+              />
+            </div>
+            <div>
+              <input
+                class="text email"
+                type="password"
+                name="password"
+                aria-placeholder="erreur"
+                required
+                placeholder="*****"
+                #mdp1
+                (click)="afterchekedmdp()"
+                [ngClass]="designemdp === false ? 'avecerreur' : ''"
+              />
+            </div>
+            <div>
+              <input
+                class="text w3lpass"
+                type="password"
+                name="password"
+                placeholder="******"
+                aria-placeholder="erreur"
+                required
+                [ngClass]="designemdp === false ? 'avecerreur' : ''"
+                #mdp2
+                (click)="afterchekedmdp()"
+              />
+            </div>
+            <div>
+              <input
+                class="text w3lpass"
+                type="text"
+                name="bank"
+                aria-placeholder="erreur"
+                required
+                placeholder="bank"
+                (click)="afterchekedbank()"
+                [ngClass]="designebank === false ? 'avecerreur' : ''"
+                #nomb
+              />
+            </div>
+            <div>
+              <input
+                class="text w3lpass"
+                type="text"
+                name="numcompte"
+                aria-placeholder="erreur"
+                required
+                (clcik)="afterchekednum()"
+                placeholder="ecrire numéro de votre compte"
+                #num
+                [ngClass]="designeerreur === false ? 'avecerreur' : ''"
+              />
+            </div>
+
+            <br />
+
+            <div class="wthree-text">
+              <label class="anim">
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  required=""
+                  (click)="verifcheck(value)"
+                />
+                <span>
+                  j'accepte les termes et conditions et la politique de
+                  confidentialité</span
+                >
+              </label>
+              <div class="clear"></div>
+            </div>
+            <input
+              type="submit"
+              value="VALIDER"
+              (click)="
+                verif(
+                  naa.value,
+                  mdp1.value,
+                  mdp2.value,
+                  email1.value,
+                  nomb.value,
+                  num.value
+                )
+              "
+            />
+          </form>
+        </div>
+      </div>
+      <!-- copyright -->
+      <div class="colorlibcopy-agile">
+        <p></p>
+      </div>
+      <!-- //copyright -->
+      <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <!-- //main -->
+  </div>
+</div>

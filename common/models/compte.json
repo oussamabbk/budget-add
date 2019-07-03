@@ -1,0 +1,28 @@
+{
+    "name": "compte",
+    "plural": "comptes",
+    "base": "PersistedModel",
+    
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "bank": {
+        "type": "string",
+        "required": true
+        
+        
+     
+    },
+    "num":{
+      "type":"number",
+      "required":true
+    }
+
+  },
+  
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }

@@ -1,0 +1,39 @@
+{
+    "name": "deprev",
+    "plural": "deprevs",
+    "base": "PersistedModel",
+    
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "date": {
+        "type": "Date",
+        "required": true
+        
+        
+      },
+      "categorie": {
+        "type": "string",
+        "required": true
+      },
+      "description":{
+          "type":"string",
+          "required":true
+      },
+      "type":{
+          "type":"string",
+          "required":true
+          
+          
+      },
+      "montant":{
+          "type":"number",
+          "required":true
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }

@@ -1,0 +1,34 @@
+{
+  "mongo1": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "",
+    "database": "demo",
+    "password": "",
+    "name": "mongo1",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "existe": {
+    "name": "existe",
+    "connector": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "database": "demo",
+    
+    "password": ""
+  },
+  "historique": {
+    "name": "historique",
+    "connector": "mongodb",
+    "host": "localhost",
+    "port": 27017,
+    "database": "demo",
+    
+    "password": ""
+  }
+
+
+  
+}
+

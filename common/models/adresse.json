@@ -1,0 +1,29 @@
+{
+    "name": "adresse",
+    "plural": "adresses",
+    "base": "PersistedModel",
+    
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "pays": {
+        "type": "string"
+        
+        
+      },
+      "ville": {
+        "type": "string",
+        "required": true
+      },
+      "codepostale": {
+        "type": "number",
+        "required": true
+      }
+
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }

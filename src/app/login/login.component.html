@@ -1,0 +1,73 @@
+
+<script type="application/x-javascript">
+  addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<div id="style-default">
+  <div class="body">
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+      <h1>connecter</h1>
+      <div class="main-agileinfo">
+        <div class="agileits-top">
+          <form action="#" method="post">
+            <!--
+          <input
+            class="text"
+            type="text"
+            name="Username"
+            placeholder="Username"
+            required=""
+          />-->
+
+            <input
+              class="text email"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required=""
+              #email
+            />
+            <input
+              class="text w3lpass"
+              type="password"
+              name="password"
+              placeholder=" mot de passe"
+              required=""
+              #password
+            />
+            <div class="wthree-text">
+              <div class="clear"></div>
+            </div>
+            <input
+              (click)="onedit(email.value, password.value)"
+              type="submit"
+              value="VALIDER"
+            />
+          </form>
+          <p (click)="onedit(email, password)" class="erreur">
+            {{ erreurlogin }}
+          </p>
+          <p>tu es nouveau? <a (click)="gotoregister()"> cree un compte </a></p>
+        </div>
+      </div>
+      <!-- copyright -->
+      <div class="colorlibcopy-agile">
+        <p></p>
+      </div>
+      <!-- //copyright -->
+      <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <!-- //main -->
+  </div>
+</div>
