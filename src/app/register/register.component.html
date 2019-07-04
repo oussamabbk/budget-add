@@ -25,7 +25,7 @@
                 aria-placeholder="erreur"
                 placeholder="ecrivez votre nom"
                 #naa
-                (click)="aftercheked()"
+                
                 [ngClass]="designName === false ? 'avecerreur' : ''"
               />
             </div>
@@ -39,7 +39,8 @@
                 aria-placeholder="erreur"
                 required
                 #email1
-                (click)="afterchekedemail()"
+                
+                
                 [ngClass]="designEmail === false ? 'avecerreur' : ''"
               />
             </div>
@@ -52,7 +53,7 @@
                 required
                 placeholder="*****"
                 #mdp1
-                (click)="afterchekedmdp()"
+                
                 [ngClass]="designemdp === false ? 'avecerreur' : ''"
               />
             </div>
@@ -66,7 +67,7 @@
                 required
                 [ngClass]="designemdp === false ? 'avecerreur' : ''"
                 #mdp2
-                (click)="afterchekedmdp()"
+                
               />
             </div>
             <div>
@@ -77,7 +78,7 @@
                 aria-placeholder="erreur"
                 required
                 placeholder="bank"
-                (click)="afterchekedbank()"
+               
                 [ngClass]="designebank === false ? 'avecerreur' : ''"
                 #nomb
               />
@@ -89,10 +90,10 @@
                 name="numcompte"
                 aria-placeholder="erreur"
                 required
-                (clcik)="afterchekednum()"
+                
                 placeholder="ecrire numéro de votre compte"
                 #num
-                [ngClass]="designeerreur === false ? 'avecerreur' : ''"
+                [ngClass]="designenum === false ? 'avecerreur' : ''"
               />
             </div>
 
@@ -103,7 +104,7 @@
                 <input
                   type="checkbox"
                   class="checkbox"
-                  required=""
+                  required
                   (click)="verifcheck(value)"
                 />
                 <span>
@@ -117,7 +118,7 @@
               type="submit"
               value="VALIDER"
               (click)="
-                verif(
+              add(
                   naa.value,
                   mdp1.value,
                   mdp2.value,

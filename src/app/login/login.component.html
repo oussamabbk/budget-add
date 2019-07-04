@@ -28,6 +28,7 @@
               placeholder="Email"
               required=""
               #email1
+              [ngClass]="x === false ? 'avecerreur' : ''"
             />
             <input
               class="text w3lpass"
@@ -36,6 +37,7 @@
               placeholder=" mot de passe"
               required=""
               #password
+              [ngClass]="x === false ? 'avecerreur' : ''"
             />
             <div class="wthree-text">
               <div class="clear"></div>

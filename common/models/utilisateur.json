@@ -19,13 +19,17 @@
         "required": true
       },
 
-      "prenom": {
+      "bank": {
         "type": "string",
         "required": true
       },
 
       "password": {
         "type": "string",
+        "required": true
+      },
+      "num": {
+        "type": "number",
         "required": true
       }
 

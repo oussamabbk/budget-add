@@ -1,7 +1,8 @@
 export interface utilisateur{
     email:string;
     nom:string;
-    prenom:string;
+    bank:string;
     password:string;
+    num:string;
     
 }
