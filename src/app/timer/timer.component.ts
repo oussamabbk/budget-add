@@ -154,17 +154,33 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 }
 */
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,Input } from "@angular/core";
 import * as Chartist from "chartist";
 import * as moment from "moment";
 import "moment/locale/fr";
 import { style } from "@angular/animations";
+import{utilisateurservice}from'../shared/utilisateur.service';
+import { Message } from "@angular/compiler/src/i18n/i18n_ast";
+
+
 @Component({
   selector: 'timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit{
+  appParentMessage: string;
+  
+  
+  user = JSON.parse(localStorage.getItem("body user"));
+  //user = localStorage.getItem("body user");
+  
+
+  
+  
+      //localStorage.setItem("body user", JSON.stringify(this.user));
+      //localStorage.setItem(this.user,'body user');
+
   currentDate;
   currentTime;
   Jour;
@@ -253,6 +269,9 @@ export class TimerComponent implements OnInit{
         return Math.round((value / data.series.reduce(sum)) * 100) + "%";
       }
     });
+    
+  
+  
     /* .......................................*/
 
     /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
@@ -284,6 +303,7 @@ export class TimerComponent implements OnInit{
     const dataCompletedTasksChart: any = {
       labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
       series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
+      
     };
 
     const optionsCompletedTasksChart: any = {
@@ -346,6 +366,15 @@ export class TimerComponent implements OnInit{
 
     //start animation for the MOIS Subscription Chart
     this.startAnimationForBarChart(datasiteViewsChart);
+
   }
+  getInformation(){
+    //let user = localStorage.getItem("body user");
+
+    //console.log(user[0].email);
+
+  }
+  
+  
 }
 

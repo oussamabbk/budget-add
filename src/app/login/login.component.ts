@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import{utilisateurservice}from'../shared/utilisateur.service';
 import{utilisateur}from'../model/utilisateur.model'
 import { Response } from '@angular/http';
@@ -7,6 +7,7 @@ import { TasksService } from 'app/shared/task.service';
 import { Router } from "@angular/router";
 
 import 'rxjs/add/operator/map'
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,9 +16,10 @@ import 'rxjs/add/operator/map'
 export class LoginComponent implements OnInit {
   x=true;
   y=true;
-
   
 
+
+  
   
   utilisateurs:[
     {
@@ -35,6 +37,10 @@ export class LoginComponent implements OnInit {
 
   
 
+ 
+
+  
+
   
 
   ngOnInit() {
@@ -46,10 +52,15 @@ export class LoginComponent implements OnInit {
      this.user=data._body;
      //console.log(this.user);
      this.utilisateurs=JSON.parse(data.text())
-     console.log(this.utilisateurs);
+     //console.log(this.utilisateurs);
      if (this.utilisateurs.length==1)
      {
+      localStorage.setItem("body user", JSON.stringify(this.user));
+      localStorage.setItem("body user", this.user);
+
       this.router.navigate(["/timer"]);
+      
+      
      }
      else{
        this.y=false;
