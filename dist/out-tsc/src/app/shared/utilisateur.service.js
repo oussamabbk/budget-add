@@ -34,19 +34,19 @@ var utilisateurservice = /** @class */ (function () {
 }());
 export { utilisateurservice };
 //# sourceMappingURL=utilisateur.service.js.map
-var searchaddutili = /** @class */ (function () {
+/*var addresse =  @class  (function () {
     function searchaddresse(http) {
         this.http = http;
     }
     //find utilisateur par email
-    searchaddutili.prototype.findadutili= function (utilisateur_id) {
+    addresse.prototype.findadutili= function (utilisateur_id) {
         return this.http.get('http://localhost:3000/api/utilisateurs/'+ utilisateur_id+'/addresse?access_token=search'+httpOptions)
             .pipe(map(function (res) { return res; }));
     };
-    searchaddutili = __decorate([
+    addresse = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [Http])
-    ], searchaddutili);
-    return searchaddutili;
+    ], addresse);
+    return addresse;
 }());
-export { searchaddutili };
+export { addresse };*/

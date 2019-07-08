@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
        let id = this.user.id;
       console.log(this.user);
       console.log("xxxxx",id);
-      localStorage.setItem("body user", this.user[0].id);
+      localStorage.setItem("body user", this.user);
       
 
 
@@ -80,29 +80,12 @@ export class LoginComponent implements OnInit {
      }
      
     
-     //console.log(this.user)
-      //data.email
-      //var pw = this.user.map(t=>t.password);
-      //console.log(pw);
+     
       
     })
-    //if(this.user!=[""]){
-      ///this.router.navigate(["/timer"]);
-
-    //}
-    
-    
-    //this.utilisateurservice.findUtilisateur(this.)
+   
   }
-  /*verifUtilisateur(e){
-    if(this.utilisateurservice.findUtilisateur(e)){
-      console.log(this.utilisateurservice.findUtilisateur(e));
-      this.router.navigate(["/timer"]);
-      
-    }
-    this.utilisateurservice.findUtilisateur(e).subscribe((data:any)=>)
-  }
-  */
+ 
  gotoregister() {
   this.router.navigate(["/register"]);
 }

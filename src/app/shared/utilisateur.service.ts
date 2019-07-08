@@ -31,6 +31,11 @@ export class utilisateurservice{
       }
       
     }*/
+    /*findadutili(ID){
+      return this.http.get('http://localhost:3000/api/utilisateurs/'+ ID+'/addresse?access_token=search'+httpOptions).pipe(map(res =>  res));
+
+
+    }*/
     addutilisateur(email,nom,bank,password,num){
       
       let contentBody = JSON.stringify({
@@ -46,7 +51,7 @@ export class utilisateurservice{
     
   }
     
-  }
+}
   /* this.taskService.addTask(task.description,task.starttime,task.endtime,task.timespent).subscribe(
       (res)=>{
           console.log(res);

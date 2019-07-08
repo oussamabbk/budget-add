@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import{utilisateur}from'../model/utilisateur.model';
 import{addresse}from'../model/utilisateur.model';
+import{utilisateurservice}from'../shared/utilisateur.service';
+
+
 
 
 
@@ -12,7 +15,7 @@ import{addresse}from'../model/utilisateur.model';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private utilisateurservice:utilisateurservice) { }
   addresse:[
   {
     pays:string;
@@ -26,9 +29,15 @@ add:any
   ngOnInit() {
   }
   user = JSON.parse(localStorage.getItem("body user"));
+  /*trouveraddresse(){
+    this.utilisateurservice.findadutili(this.user[0].id).subscribe((data:any)=>
+    {
+      console.log("true")
+    })
+  }*/
+  
   
 
-}
 
 
 }
