@@ -34,7 +34,7 @@ var utilisateurservice = /** @class */ (function () {
 }());
 export { utilisateurservice };
 //# sourceMappingURL=utilisateur.service.js.map
-/*var addresse =  @class  (function () {
+var addresse =  /*@class */ (function () {
     function searchaddresse(http) {
         this.http = http;
     }
@@ -49,4 +49,4 @@ export { utilisateurservice };
     ], addresse);
     return addresse;
 }());
-export { addresse };*/
+export { addresse };

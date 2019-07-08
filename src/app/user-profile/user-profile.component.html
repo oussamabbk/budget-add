@@ -73,6 +73,7 @@
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="pays" type="text"
+                                  value=""
                                   #pays>
                                 </mat-form-field>
                               </div>
@@ -85,12 +86,13 @@
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="Code Postal" type="text"
+                                  
                                   #code>
                                 </mat-form-field>
                               </div>
                           </div>
                          
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="new(email.value,nom.value,bank.value,num.value,tel.value)" >Valider</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>

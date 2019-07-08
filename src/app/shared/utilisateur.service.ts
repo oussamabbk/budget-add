@@ -31,11 +31,11 @@ export class utilisateurservice{
       }
       
     }*/
-    /*findadutili(ID){
-      return this.http.get('http://localhost:3000/api/utilisateurs/'+ ID+'/addresse?access_token=search'+httpOptions).pipe(map(res =>  res));
+    findadutili(ID){
+      return this.http.get('http://localhost:3000/api/adresses/'+ ID,httpOptions).pipe(map(res =>  res));
 
 
-    }*/
+    }
     addutilisateur(email,nom,bank,password,num){
       
       let contentBody = JSON.stringify({
@@ -47,6 +47,19 @@ export class utilisateurservice{
         
     });
     return this.http.post('http://localhost:3000/api/utilisateurs',contentBody,httpOptions)
+      .pipe(map(res =>  res));
+    
+  }
+  updateUtlisateur(email,nom,bank,num,tel){
+    let contentBody = JSON.stringify({
+      "email": email,
+      "nom": nom,
+      "bank": bank,
+      "num":num,
+      "tel":tel
+      
+  });
+  return this.http.post('http://localhost:3000/api/utilisateurs?filter[email]='+email,contentBody,httpOptions)
       .pipe(map(res =>  res));
     
   }

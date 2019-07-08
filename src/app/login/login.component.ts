@@ -25,7 +25,15 @@ export class LoginComponent implements OnInit {
   
 
 
+  addresse:[
+    {
+      pays:string;
+      ville:string;
+      codepostale:number;
+      add:string;
   
+  }]
+  add:any
   
   utilisateurs:[
     {
@@ -68,12 +76,27 @@ export class LoginComponent implements OnInit {
       console.log("xxxxx",id);
       localStorage.setItem("body user", this.user);
       
-
+      
 
       this.router.navigate(["/timer"]);
       
       
+
+      /*this.user = JSON.parse(localStorage.getItem("body user"));
+      this.utilisateurservice.findadutili(this.user[0].id).subscribe((data:any)=>
+      {
+        this.add=data._body;
+        this.addresse=JSON.parse(data.text())
+        console.log(this.addresse);
+        localStorage.setItem(" add", this.add);
+
+
+        
+      })*/
+
+
      }
+     
      else{
        this.y=false;
        this.x=false;
