@@ -12,12 +12,18 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="nom de banque">
+                                    <input matInput placeholder="nom de banque"
+                                    value="{{ user[0].bank}}"
+                                    #bank>
                                   </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="numéro de compte">
+                                    <input matInput placeholder="numéro de compte"
+                                    #num
+                                    value="{{ user[0].num}}">
+                                    
+                                  
                                   </mat-form-field>
                               </div>
                           </div>
@@ -26,48 +32,60 @@
                           <div class="row">
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="nom" type="text">
+                                  <input matInput placeholder="nom" type="text"
+                                  value="{{ user[0].nom}}"
+                                  #nom>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="prenom" type="text">
+                                  <input matInput placeholder="prenom" type="text"
+                                  value="{{ user[0].prenom}}"
+                                  #prenom>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="numero de telephone" type="text">
+                                    <input matInput placeholder="numero de telephone" type="text"
+                                    value="{{ user[0].tel}}"
+                                    #tel>
                                   </mat-form-field>
                                 </div>
                           </div>
                           <div class="row">
                               <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="E-mail" type="text">
+                                  <input matInput placeholder="E-mail" type="text"
+                                  value="{{ user[0].email}}"
+                                  #email>
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Adress" type="text">
+                                  <input matInput placeholder="Adress" type="text"
+                                  #add>
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="pays" type="text">
+                                  <input matInput placeholder="pays" type="text"
+                                  #pays>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="ville" type="text">
+                                  <input matInput placeholder="ville" type="text"
+                                  #ville>
                                 </mat-form-field>
                               </div>
                               <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Code Postal" type="text">
+                                  <input matInput placeholder="Code Postal" type="text"
+                                  #code>
                                 </mat-form-field>
                               </div>
                           </div>

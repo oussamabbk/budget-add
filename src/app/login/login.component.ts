@@ -8,12 +8,18 @@ import { Router } from "@angular/router";
 
 import 'rxjs/add/operator/map'
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { ConditionalExpr } from '@angular/compiler';
+import { json } from 'body-parser';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
+  
   x=true;
   y=true;
   
@@ -31,6 +37,8 @@ export class LoginComponent implements OnInit {
     }
   ]
   user:any;
+  
+
   constructor(private utilisateurservice:utilisateurservice,private tasekservice: TasksService,private router:Router) { 
     //this.verifUtilisateur();
   }
@@ -45,18 +53,22 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   verifUtilisateur(e,p){
-    //console.log(this.utilisateurservice.findUtilisateur(e,p));
     this.utilisateurservice.findUtilisateur(e,p).subscribe((data:any)=>{
-      //console.log(data);
+      console.log("xxxxxx",data._body);
+      
      this.user=data._body;
-     //console.log(this.user);
      this.utilisateurs=JSON.parse(data.text())
-     //console.log(this.utilisateurs);
      if (this.utilisateurs.length==1)
      {
-      localStorage.setItem("body user", JSON.stringify(this.user));
-      localStorage.setItem("body user", this.user);
+       let e=this.user[0].email;
+       let id = this.user.id;
+      console.log(this.user);
+      console.log("xxxxx",id);
+      localStorage.setItem("body user", this.user[0].id);
+      
+
 
       this.router.navigate(["/timer"]);
       

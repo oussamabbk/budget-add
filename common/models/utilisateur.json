@@ -13,6 +13,10 @@
         "required": true
         
       },
+      "prenom": {
+        "type": "string",
+        "required": false
+      },
 
       "nom": {
         "type": "string",
@@ -31,7 +35,13 @@
       "num": {
         "type": "number",
         "required": true
+      },
+      "tel": {
+        "type": "number",
+        "required": false
       }
+      
+      
 
     },
     "validations": [],

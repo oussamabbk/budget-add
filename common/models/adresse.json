@@ -19,6 +19,10 @@
       "codepostale": {
         "type": "number",
         "required": true
+      },
+      "add":{
+        "type":"string",
+        "required":true
       }
 
     },
@@ -27,7 +31,7 @@
       "utilisateur":{
         "type":"hasMany",
         "model":"utilisateur",
-        "foreignKey":"utilisateurId"
+        "foreignKey":"addresseId"
       }
     },
     "acls": [],

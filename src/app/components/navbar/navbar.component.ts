@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../shared/task.service';
 import { Response } from '@angular/http';
+import { Router } from "@angular/router";
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -22,7 +25,7 @@ export class NavbarComponent implements OnInit {
     // array of Tasks used while displaying tasks
     myTask: string[] = [];
 
-    constructor(private taskService : TasksService) {}
+    constructor(private taskService : TasksService,private router: Router) {}
 
     ngOnInit() {}
 
@@ -59,6 +62,11 @@ export class NavbarComponent implements OnInit {
         (error)=>{console.log(error)
         }
       );
+    }
+    deconnexion(){
+      localStorage.clear();
+      this.router.navigate(["/login"]);
+
     }
 
 }

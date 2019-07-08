@@ -7,6 +7,8 @@ import{utilisateur}from'../model/utilisateur.model'
 
 import{utilisateurservice}from'../shared/utilisateur.service';
 import { TasksService } from 'app/shared/task.service';
+import 'rxjs/add/operator/map'
+
 
 
 @Component({
@@ -18,12 +20,16 @@ export class RegisterComponent implements OnInit {
   utilisateurs:[
     {
       email:string;
+      
       nom:string;
       bank:string;
       password:string;
       num:number;
+      
     }
+    
   ]
+  user:any;
   designeerreur ;
   designName ;
   designEmail ;
@@ -111,24 +117,62 @@ export class RegisterComponent implements OnInit {
     const user:utilisateur={
       email:email1,
       nom:naa,
+      prenom:naa,
       bank:nomb,
       password:mdp1,
-      num:num
+      num:num,
+      tel:num,
+      
 
     };
     
+    
       this.utilisateurservice.addutilisateur(user.email,user.nom,user.bank,user.password,user.num).subscribe(
-        (res)=>{
+        (res : any) =>{
             console.log(res);
-            this.router.navigate(["/timer"]);
+
+           
+            //this.router.navigate(["/timer"]);
+            
             
             
         })
-        
-        
-      }
+        this.utilisateurservice.findUtilisateur(email1,mdp1).subscribe((data:any)=>{
+          //console.log(data);
+         this.user=data._body;
+         //console.log(this.user);
+         this.utilisateurs=JSON.parse(data.text())
+         //console.log(this.utilisateurs);
+         if (this.utilisateurs.length==1)
+         {
+           let e=this.user[0].email;
+          //localStorage.setItem("body user", JSON.stringify(e));
+          console.log(this.user);
+          //console.log(this.user[0].prenom)
+          
+          //console.log(this.user[0].nom);
+          localStorage.setItem("body user", this.user);
+          
       
+      
+          this.router.navigate(["/timer"]);
+          return true
+          
+          
+         }
+        
+
+        
+        
+        
+      })
+    }
+  }
 }
+  
+    
+
+  
 /*
   verifcheck(z) {
     z++;
@@ -260,6 +304,3 @@ export class RegisterComponent implements OnInit {
 
   }
   */
-
-  
-}
