@@ -30,6 +30,15 @@ export class utilisateurservice {
         })
       );
   }
+  SearchParId(user_id) {
+    user_id = localStorage.getItem("user_id");
+    return this.http
+      .get(
+        "http://localhost:3000/api/utilisateurs?filter[where][id]=" + user_id,
+        httpOptions
+      )
+      .pipe(map(res => res));
+  }
   /*
     findUtilisateur(searchemail){
       if(this.http.get('http://localhost:3000/api/utilisateurs?filter[where][email]='+searchemail,httpOptions)){
@@ -57,18 +66,26 @@ export class utilisateurservice {
       .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
       .pipe(map(res => res));
   }
-  updateUtlisateur(email, nom, bank, num, tel) {
+  updateUtlisateur(email, nom, prenom, bank, num, tel) {
+    let userId = localStorage.getItem("user_id");
+
     let contentBody = JSON.stringify({
+      id: userId,
       email: email,
       nom: nom,
+      prenom: prenom,
       bank: bank,
       num: num,
       tel: tel
     });
     return this.http
-      .post(
-        "http://localhost:3000/api/utilisateurs?filter[email]=" + email,
-        contentBody,
+      .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
+      .pipe(map(res => res));
+  }
+  getAddresseUtlili(ID) {
+    return this.http
+      .get(
+        "http://localhost:3000/api/utilisateurs/" + ID + "/addresse",
         httpOptions
       )
       .pipe(map(res => res));

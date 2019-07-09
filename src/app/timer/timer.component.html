@@ -1,181 +1,166 @@
-
-
-
-
-
-
-
-
 <div class="main-content">
-    <h3 >
-   
-        {{user[0].nom}}
-    </h3>
-    <br>
-    <div class="container-fluid">
-        
-      <div class="row">
-       
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-warning card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">date_range</i>
-              </div>
-              <p class="card-category">aujourd'hui</p>
-              <h3 class="card-title">
-                <!-- <h3 class="card-title"> -->
-                <small>{{ currentDate }}</small>
-              </h3>
+  <h3></h3>
+  <br />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">date_range</i>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">hourglass_empty</i>
-                <!--<i class="material-icons text-danger"></i>-->
-                <a> {{ Jour }} {{ currentTime }} </a>
-              </div>
-            </div>
+            <p class="card-category">aujourd'hui</p>
+            <h3 class="card-title">
+              <!-- <h3 class="card-title"> -->
+              <small>{{ currentDate }}</small>
+            </h3>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-success card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">local_atm</i>
-              </div>
-              <p class="card-category">Solde total</p>
-              <h3 class="card-title">£34,245</h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">date_range</i> maintenant
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-danger card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">security</i>
-              </div>
-              <p class="card-category">numéro de compte</p>
-              <h3 class="card-title"> {{user[0].num}} </h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">update</i> actuellement
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-info card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">account_balance</i>
-              </div>
-              <p class="card-category">nom de banque</p>
-              <h3 class="card-title"> {{user[0].bank}} </h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">update</i> actuellement
-              </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">hourglass_empty</i>
+              <!--<i class="material-icons text-danger"></i>-->
+              <a> {{ Jour }} {{ currentTime }} </a>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card card-chart">
-            <div class="card-header oussama">
-              <div class="ct-chart" id="dailySalesChart"></div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">local_atm</i>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">budget aujourd'hui</h4>
-              <p class="card-category">
-                <span class="text-success"
-                  ><i class="fa  fa-arrow-up"></i> plus élevé 100 £
-                </span>
-                <br />
-                <span class="text-failed"
-                  ><i class="fa fa-arrow-down"></i> plus élevé 100 £
-                </span>
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons" material-icon>access_time</i> updated 4
-                minutes ago
-              </div>
-            </div>
+            <p class="card-category">Solde total</p>
+            <h3 class="card-title">£34,245</h3>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card card-chart">
-            <div class="card-header card-header-warning">
-              <div class="ct-chart" id="websiteViewsChart"></div>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">budget cette mois</h4>
-              <p class="card-category">
-                <span class="text-success"
-                  ><i class="fa  fa-arrow-up"></i> jour plus élevé 100 £
-                </span>
-                <br />
-                <span class="text-failed"
-                  ><i class="fa fa-arrow-down"></i> jour plus bas 100 £
-                </span>
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">access_time</i> campaign sent 2 days ago
-              </div>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-md-4">
-          <div class="card card-chart">
-            <div class="card-header card-header-danger">
-              <div class="ct-chart" id="completedTasksChart"></div>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">budget cette année</h4>
-              <p class="card-category">
-                <span class="text-success"
-                  ><i class="fa  fa-arrow-up"></i> mois plus élevé 100 £
-                </span>
-                <br />
-                <span class="text-failed"
-                  ><i class="fa fa-arrow-down"></i> mois plus bas 100 £
-                </span>
-              </p>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">access_time</i> campaign sent 2 days ago
-              </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i> maintenant
             </div>
           </div>
         </div>
       </div>
-      
-      <div>
-        <button mat-fab id="add-button" data-toggle="dropdown" class="btn-circle">
-          <i class="material-icons">attach_money</i>
-          <div class="dropdown-menu">
-            <a class="dropdown-item ">ajouter dépenses</a>
-            <a class="dropdown-item">ajouter revenus</a>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">security</i>
+            </div>
+            <p class="card-category">numéro de compte</p>
+            <h3 class="card-title">{{ num }}</h3>
           </div>
-        </button>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> actuellement
+            </div>
+          </div>
+        </div>
       </div>
-  
-      
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">account_balance</i>
+            </div>
+            <p class="card-category">nom de banque</p>
+            <h3 class="card-title">{{ bank }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">update</i> actuellement
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header oussama">
+            <div class="ct-chart" id="dailySalesChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">budget aujourd'hui</h4>
+            <p class="card-category">
+              <span class="text-success"
+                ><i class="fa  fa-arrow-up"></i> plus élevé 100 £
+              </span>
+              <br />
+              <span class="text-failed"
+                ><i class="fa fa-arrow-down"></i> plus élevé 100 £
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons" material-icon>access_time</i> updated 4
+              minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-warning">
+            <div class="ct-chart" id="websiteViewsChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">budget cette mois</h4>
+            <p class="card-category">
+              <span class="text-success"
+                ><i class="fa  fa-arrow-up"></i> jour plus élevé 100 £
+              </span>
+              <br />
+              <span class="text-failed"
+                ><i class="fa fa-arrow-down"></i> jour plus bas 100 £
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> campaign sent 2 days ago
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header-danger">
+            <div class="ct-chart" id="completedTasksChart"></div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">budget cette année</h4>
+            <p class="card-category">
+              <span class="text-success"
+                ><i class="fa  fa-arrow-up"></i> mois plus élevé 100 £
+              </span>
+              <br />
+              <span class="text-failed"
+                ><i class="fa fa-arrow-down"></i> mois plus bas 100 £
+              </span>
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> campaign sent 2 days ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button mat-fab id="add-button" data-toggle="dropdown" class="btn-circle">
+        <i class="material-icons">attach_money</i>
+        <div class="dropdown-menu">
+          <a class="dropdown-item ">ajouter dépenses</a>
+          <a class="dropdown-item">ajouter revenus</a>
+        </div>
+      </button>
     </div>
   </div>
+</div>
 <!--
 <div class="main-content">
   <div class="container-fluid">

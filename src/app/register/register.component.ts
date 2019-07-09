@@ -3,13 +3,11 @@ import * as EmailValidator from "email-validator";
 import { and } from "@angular/router/src/utils/collection";
 import { Router } from "@angular/router";
 import { DOCUMENT } from "@angular/common";
-import{utilisateur}from'../model/utilisateur.model'
+import { utilisateur } from "../model/utilisateur.model";
 
-import{utilisateurservice}from'../shared/utilisateur.service';
-import { TasksService } from 'app/shared/task.service';
-import 'rxjs/add/operator/map'
-
-
+import { utilisateurservice } from "../shared/utilisateur.service";
+import { TasksService } from "app/shared/task.service";
+import "rxjs/add/operator/map";
 
 @Component({
   selector: "app-register",
@@ -17,76 +15,66 @@ import 'rxjs/add/operator/map'
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  utilisateurs:[
+  utilisateurs: [
     {
-      email:string;
-      
-      nom:string;
-      bank:string;
-      password:string;
-      num:number;
-      
+      email: string;
+
+      nom: string;
+      bank: string;
+      password: string;
+      num: number;
     }
-    
-  ]
-  user:any;
-  designeerreur ;
-  designName ;
-  designEmail ;
-  designemdp ;
-  designebank ;
-  designenum ;
- 
-  constructor(private router: Router,private utilisateurservice:utilisateurservice) {}
+  ];
+  user: any;
+  designeerreur;
+  designName;
+  designEmail;
+  designemdp;
+  designebank;
+  designenum;
 
-  
-
+  constructor(
+    private router: Router,
+    private utilisateurservice: utilisateurservice
+  ) {}
 
   ngOnInit() {}
   aftercheked(naa) {
-    if(naa==""){
-     return this.designName=false;
-      
-    }
-    else{
-      console.log("truenom")
-      this.designName=true;
+    if (naa == "") {
+      return (this.designName = false);
+    } else {
+      console.log("truenom");
+      this.designName = true;
       return true;
     }
-    
   }
-  afterchekedmdp(mdp1,mdp2) {
-    if(mdp1!=mdp2 || mdp1==""){
-      this.designemdp=false;
+  afterchekedmdp(mdp1, mdp2) {
+    if (mdp1 != mdp2 || mdp1 == "") {
+      this.designemdp = false;
       return false;
-    }
-    else{
-      console.log("truemdp")
-      this.designemdp=true;
+    } else {
+      console.log("truemdp");
+      this.designemdp = true;
       return true;
-      
     }
   }
   afterchekedemail(email1) {
-    if (EmailValidator.validate(email1) !=true)
-    {
+    if (EmailValidator.validate(email1) != true) {
       this.designEmail = false;
       return false;
-    }
-    else{
-      console.log("trueemail")
-      this.designEmail=true;
+    } else {
+      console.log("trueemail");
+      this.designEmail = true;
       return true;
     }
   }
   afterchekedbank(nomb) {
-    if(nomb==""){
-      this.designebank=false;
+    if (nomb == "") {
+      this.designebank = false;
       return false;
-    }
-    else{
-      console.log("truenomb")
-      this.designebank=true;
+    } else {
+      console.log("truenomb");
+      this.designebank = true;
       return true;
     }
   }
@@ -94,85 +82,55 @@ export class RegisterComponent implements OnInit {
     const re = new RegExp("^[0-9]*$");
     let x = num.toString();
     if (!re.test(x) || num != "") {
-    
       this.designenum = true;
       return true;
-      
-    }
-    else{
-      console.log("truenum")
-      this.designenum=true;
+    } else {
+      console.log("truenum");
+      this.designenum = true;
       return true;
     }
   }
-  add(naa, mdp1, mdp2, email1, nomb, num,){
-    console.log(this.aftercheked(naa))
-    console.log(this.afterchekedbank(nomb))
-    console.log(this.afterchekedemail(email1))
-    console.log(this.afterchekedmdp(mdp1,mdp2))
-    console.log(this.afterchekednum(num))
-    
-    if(this.aftercheked(naa)==true && this.afterchekedbank(nomb)==true && this.afterchekedemail(email1)==true && this.afterchekedmdp(mdp1,mdp2)==true )
-    {
-    const user:utilisateur={
-      email:email1,
-      nom:naa,
-      prenom:naa,
-      bank:nomb,
-      password:mdp1,
-      num:num,
-      tel:num,
-      
 
-    };
-    
-    
-      this.utilisateurservice.addutilisateur(user.email,user.nom,user.bank,user.password,user.num).subscribe(
-        (res : any) =>{
-            console.log(res);
+  add(naa, mdp1, mdp2, email1, nomb, num) {
+    if (
+      this.aftercheked(naa) == true &&
+      this.afterchekedbank(nomb) == true &&
+      this.afterchekedemail(email1) == true &&
+      this.afterchekedmdp(mdp1, mdp2) == true
+    ) {
+      const user: utilisateur = {
+        email: email1,
+        nom: naa,
+        prenom: naa,
+        bank: nomb,
+        password: mdp1,
+        num: num,
+        tel: num
+      };
 
-           
-            //this.router.navigate(["/timer"]);
-            
-            
-            
-        })
-        this.utilisateurservice.findUtilisateur(email1,mdp1).subscribe((data:any)=>{
-          //console.log(data);
-         this.user=data._body;
-         //console.log(this.user);
-         this.utilisateurs=JSON.parse(data.text())
-         //console.log(this.utilisateurs);
-         if (this.utilisateurs.length==1)
-         {
-           let e=this.user[0].email;
-          //localStorage.setItem("body user", JSON.stringify(e));
-          console.log(this.user);
-          //console.log(this.user[0].prenom)
-          
-          //console.log(this.user[0].nom);
-          localStorage.setItem("body user", this.user);
-          
-      
-      
-          this.router.navigate(["/timer"]);
-          return true
-          
-          
-         }
-        
-
-        
-        
-        
-      })
+      this.utilisateurservice
+        .addutilisateur(
+          user.email,
+          user.nom,
+          user.bank,
+          user.password,
+          user.num
+        )
+        .subscribe((res: any) => res);
     }
+    this.utilisateurservice
+      .findUtilisateur(email1, mdp1)
+      .subscribe((data: any) => {
+        let userId = localStorage.getItem("user_id");
+        console.log(userId);
+
+        if (userId.length !== 0) {
+          this.router.navigate(["/timer"]);
+        }
+      });
   }
 }
-  
-    
 
-  
 /*
   verifcheck(z) {
     z++;

@@ -154,37 +154,46 @@ export class TimerComponent implements OnInit, OnDestroy {
   }
 }
 */
-import { Component, OnInit,Input } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import * as Chartist from "chartist";
 import * as moment from "moment";
 import "moment/locale/fr";
 import { style } from "@angular/animations";
-import{utilisateurservice}from'../shared/utilisateur.service';
+import { utilisateurservice } from "../shared/utilisateur.service";
 import { Message } from "@angular/compiler/src/i18n/i18n_ast";
 
-
 @Component({
-  selector: 'timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.css']
+  selector: "timer",
+  templateUrl: "./timer.component.html",
+  styleUrls: ["./timer.component.css"]
 })
-export class TimerComponent implements OnInit{
+export class TimerComponent implements OnInit {
   appParentMessage: string;
-  
-  
-  user = JSON.parse(localStorage.getItem("body user"));
+
+  //user = JSON.parse(localStorage.getItem("body user"));
   //user = localStorage.getItem("body user");
-  
 
-  
-  
-      //localStorage.setItem("body user", JSON.stringify(this.user));
-      //localStorage.setItem(this.user,'body user');
-
+  //localStorage.setItem("body user", JSON.stringify(this.user));
+  //localStorage.setItem(this.user,'body user');
+  utilisateurs: [
+    {
+      email: string;
+      bank: string;
+      prenom: string;
+      password: string;
+      num: number;
+    }
+  ];
+  user: any;
   currentDate;
   currentTime;
   Jour;
-  constructor() {}
+  num;
+  bank;
+  userId = localStorage.getItem("user_id");
+
+  constructor(private utilisateurservice: utilisateurservice) {}
+
   startAnimationForLineChart(chart) {
     let seq: any, delays: any, durations: any;
     seq = 0;
@@ -269,41 +278,12 @@ export class TimerComponent implements OnInit{
         return Math.round((value / data.series.reduce(sum)) * 100) + "%";
       }
     });
-    
-  
-  
-    /* .......................................*/
 
-    /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-    /*
-      var dataDailySalesChart: any = {
-          labels: ['dép/rev'],
-          series: [
-              [17],
-              [30]
-          ]
-      };
-
-     var optionsDailySalesChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-      }
-
-      var dailySalesChart = new Chartist.Bar('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
-      this.startAnimationForBarChart(dailySalesChart);
-
-      */
     /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
     const dataCompletedTasksChart: any = {
       labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
       series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
-      
     };
 
     const optionsCompletedTasksChart: any = {
@@ -366,15 +346,19 @@ export class TimerComponent implements OnInit{
 
     //start animation for the MOIS Subscription Chart
     this.startAnimationForBarChart(datasiteViewsChart);
-
+    let userId = localStorage.getItem("user_id");
+    this.utilisateurservice.SearchParId(userId).subscribe((data: any) => {
+      let x = data.json();
+      this.num = x[0].num;
+      this.bank = x[0].bank;
+    });
   }
-  getInformation(){
-    //let user = localStorage.getItem("body user");
-
+  getInformation() {
+    let userId = localStorage.getItem("user_id");
     //console.log(user[0].email);
-
+    this.utilisateurservice.SearchParId(userId).subscribe((data: any) => {
+      let x = data.json();
+      console.log(x[0].email);
+    });
   }
-  
-  
 }
-
