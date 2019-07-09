@@ -66,20 +66,25 @@ export class utilisateurservice {
       .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
       .pipe(map(res => res));
   }
-  updateUtlisateur(email, nom, prenom, bank, num, tel) {
+  updateUtlisateur(email, nom, prenom, password, bank, num, tel) {
     let userId = localStorage.getItem("user_id");
 
     let contentBody = JSON.stringify({
-      id: userId,
       email: email,
       nom: nom,
       prenom: prenom,
+      password: password,
       bank: bank,
       num: num,
       tel: tel
     });
+
     return this.http
-      .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
+      .post(
+        "http://localhost:3000/api/utilisateurs?filter[where][id]=" + userId,
+        contentBody,
+        httpOptions
+      )
       .pipe(map(res => res));
   }
   getAddresseUtlili(ID) {

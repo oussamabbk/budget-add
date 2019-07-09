@@ -73,15 +73,27 @@ export class UserProfileComponent implements OnInit {
 
 
   }*/
-  updateUSer(email, nom, prenom, bank, num, tel) {
+  updateUSer(email1, nom1, prenom1, bank1, num1, tel1) {
+    const user: utilisateur = {
+      email: email1,
+      nom: nom1,
+      prenom: prenom1,
+      bank: bank1,
+      password: "sss",
+      num: num1,
+      tel: tel1
+    };
     this.utilisateurservice
       .updateUtlisateur(
-        (email = email),
-        (nom = nom),
-        (prenom = prenom),
-        (bank = bank),
-        (num = num),
-        (tel = tel)
+        user.email,
+        user.nom,
+        user.prenom,
+        user.password,
+
+        user.bank,
+
+        user.num,
+        user.tel
       )
       .subscribe((data: any) => {
         console.log(data);
