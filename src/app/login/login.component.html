@@ -1,4 +1,3 @@
-
 <script type="application/x-javascript">
   addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
 </script>
@@ -28,7 +27,7 @@
               placeholder="Email"
               required=""
               #email1
-              [ngClass]="x === false ? 'avecerreur' : ''"
+              [ngClass]="b === false ? 'avecerreur' : ''"
             />
             <input
               class="text w3lpass"
@@ -37,13 +36,13 @@
               placeholder=" mot de passe"
               required=""
               #password
-              [ngClass]="x === false ? 'avecerreur' : ''"
+              [ngClass]="a === false ? 'avecerreur' : ''"
             />
             <div class="wthree-text">
               <div class="clear"></div>
             </div>
             <input
-              (click)="verifUtilisateur(email1.value,password.value)"
+              (click)="verifUtilisateur(email1.value, password.value)"
               type="submit"
               value="VALIDER"
             />

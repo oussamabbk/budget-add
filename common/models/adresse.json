@@ -1,39 +1,36 @@
 {
-    "name": "adresse",
-    "plural": "adresses",
-    "base": "PersistedModel",
-    
-    "options": {
-      "validateUpsert": true
-    },
-    "properties": {
-      "pays": {
-        "type": "string"
-        
-        
-      },
-      "ville": {
-        "type": "string",
-        "required": true
-      },
-      "codepostale": {
-        "type": "number",
-        "required": true
-      },
-      "add":{
-        "type":"string",
-        "required":true
-      }
+  "name": "adresse",
+  "plural": "adresses",
+  "base": "PersistedModel",
 
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "pays": {
+      "type": "string"
     },
-    "validations": [],
-    "relations": {
-      "utilisateur":{
-        "type":"hasMany",
-        "model":"utilisateur",
-        "foreignKey":"addresseId"
-      }
+    "ville": {
+      "type": "string",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
-  }
+    "codepostale": {
+      "type": "number",
+      "required": true
+    },
+    "add": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "utilisateur": {
+      "type": "hasMany",
+      "model": "utilisateur",
+      "foreignKey": "addresseId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -20,6 +20,9 @@ export class UserProfileComponent implements OnInit {
   pays1 = "";
   codepostale1 = "";
   ville1 = "";
+  pass = "bbk";
+  emailfix = "";
+  y = "";
   constructor(private utilisateurservice: utilisateurservice) {}
   addresse: [
     {
@@ -29,14 +32,16 @@ export class UserProfileComponent implements OnInit {
       add: string;
     }
   ];
-  add: any;
+  addr: any;
   utilisateurs: [
     {
       email: string;
       bank: string;
-      prenom: string;
+      nom: string;
       password: string;
+      prenom: string;
       num: number;
+      tel: number;
     }
   ];
   user: any;
@@ -57,7 +62,7 @@ export class UserProfileComponent implements OnInit {
       if (y.length !== 0) {
         this.add1 = y[0].add;
         this.pays1 = y[0].pays;
-        this.codepostale1 = y[0].code;
+        this.codepostale1 = y[0].codepostale;
         this.ville1 = y[0].ville;
       }
     });
@@ -73,30 +78,63 @@ export class UserProfileComponent implements OnInit {
 
 
   }*/
-  updateUSer(email1, nom1, prenom1, bank1, num1, tel1) {
-    const user: utilisateur = {
-      email: email1,
-      nom: nom1,
-      prenom: prenom1,
-      bank: bank1,
-      password: "sss",
-      num: num1,
-      tel: tel1
-    };
-    this.utilisateurservice
-      .updateUtlisateur(
-        user.email,
-        user.nom,
-        user.prenom,
-        user.password,
+  updateUSer(
+    nom1,
+    prenom1,
+    bank1,
+    num1,
+    tel1,
+    mdp1,
+    mdp2,
+    pays,
+    ville,
+    codepostale,
+    add
+  ) {
+    let userId = localStorage.getItem("user_id");
+    var mdp = "";
 
-        user.bank,
+    this.utilisateurservice.SearchParId(userId).subscribe((data: any) => {
+      console.log(this.emailfix);
+    });
+    if (mdp1 == mdp2) {
+      mdp = mdp1;
 
-        user.num,
-        user.tel
-      )
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+      const user: utilisateur = {
+        email: "iiiiiiii",
+        nom: nom1,
+        prenom: prenom1,
+        bank: bank1,
+        num: num1,
+        password: mdp,
+
+        tel: tel1
+      };
+
+      this.utilisateurservice
+        .updateUtlisateur(
+          user.nom,
+          user.prenom,
+          user.password,
+          user.bank,
+          user.num,
+
+          user.tel
+        )
+        .subscribe((data: any) => {
+          console.log(data);
+        });
+      const addr: addresse = {
+        pays: pays,
+        ville: ville,
+        codepostale: codepostale,
+        add: add
+      };
+      this.utilisateurservice
+        .addAdresseUTili(addr.pays, addr.ville, addr.codepostale, addr.add)
+        .subscribe((data: any) => {
+          console.log(data);
+        });
+    }
   }
 }

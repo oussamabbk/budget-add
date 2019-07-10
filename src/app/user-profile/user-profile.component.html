@@ -28,6 +28,7 @@
                       matInput
                       placeholder="numéro de compte"
                       #num
+                      type="number"
                       value="{{ num1 }}"
                     />
                   </mat-form-field>
@@ -70,7 +71,27 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="mot de passe"
+                      type="password"
+                      #mdp2
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      placeholder="confirmer mot de passe"
+                      type="password"
+                      #mdp1
+                    />
+                  </mat-form-field>
+                </div>
+                <!--<div class="col-md-12">
                   <mat-form-field class="example-full-width">
                     <input
                       matInput
@@ -80,7 +101,7 @@
                       value="{{ email1 }}"
                     />
                   </mat-form-field>
-                </div>
+                </div>-->
               </div>
               <div class="row">
                 <div class="col-md-12">
@@ -137,13 +158,17 @@
                 class="btn btn-danger pull-right"
                 (click)="
                   updateUSer(
-                    email.value,
                     nom.value,
                     prenom.value,
-                    pays.value,
                     bank.value,
                     num.value,
-                    tel.value
+                    tel.value,
+                    mdp1.value,
+                    mdp2.value,
+                    pays.value,
+                    ville.value,
+                    code.value,
+                    add.value
                   )
                 "
               >

@@ -1,69 +1,63 @@
 {
-    "name": "utilisateur",
-    "plural": "utilisateurs",
-    "base": "PersistedModel",
-    
-    "options": {
-      "validateUpsert": true
+  "name": "utilisateur",
+  "plural": "utilisateurs",
+  "base": "PersistedModel",
+
+  "options": {
+    "validateUpsert": true
+  },
+
+  "properties": {
+    "email": {
+      "type": "string",
+      "required": true
     },
-    
-    "properties": {
-      "email": {
-        "type": "string",
-        "required": true
-        
-      },
-      "prenom": {
-        "type": "string",
-        "required": false
-      },
-
-      "nom": {
-        "type": "string",
-        "required": true
-      },
-
-      "bank": {
-        "type": "string",
-        "required": true
-      },
-
-      "password": {
-        "type": "string",
-        "required": true
-      },
-      "num": {
-        "type": "number",
-        "required": true
-      },
-      "tel": {
-        "type": "number",
-        "required": false
-      }
-      
-      
-
+    "prenom": {
+      "type": "string",
+      "required": false
     },
-    "validations": [],
-    "relations": {
-      "addresse":{
-        "type":"hasMany",
-        "model":"adresse",
-        "foreignKey":"addresseId"
-      },
-      "dep-rev":{
-        "type":"hasMany",
-        "model":"deprev",
-        "deprev":"deprevId"
-      },
-      "compte":{
-        "type":"hasMany",
-        "model":"compte",
-        "deprev":"compteId"
-      }
-      
+
+    "nom": {
+      "type": "string",
+      "required": true
     },
-    "acls": [],
-    "methods": {}
-  }
-  
+
+    "bank": {
+      "type": "string",
+      "required": true
+    },
+
+    "password": {
+      "type": "string",
+      "required": false
+    },
+    "num": {
+      "type": "number",
+      "required": true
+    },
+    "tel": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "addresse": {
+      "type": "hasMany",
+      "model": "adresse",
+      "foreignKey": "addresseId"
+    },
+    "dep-rev": {
+      "type": "hasMany",
+      "model": "deprev",
+      "deprev": "deprevId"
+    },
+    "compte": {
+      "type": "hasMany",
+      "model": "compte",
+      "deprev": "compteId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

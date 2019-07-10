@@ -11,8 +11,8 @@ import "rxjs/add/operator/map";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  x = true;
-  y = true;
+  a = true;
+  b = true;
 
   addresse: [
     {
@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
       if (userId.length !== 0) {
         this.router.navigate(["/timer"]);
       } else {
-        this.y = false;
-        this.x = false;
+        this.a = false;
+        this.b = false;
       }
     });
   }

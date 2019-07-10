@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { map } from "rxjs/operators";
+import { EmailValidator } from "@angular/forms";
 
 // headers
 const httpOptions = {
@@ -66,22 +67,33 @@ export class utilisateurservice {
       .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
       .pipe(map(res => res));
   }
-  updateUtlisateur(email, nom, prenom, password, bank, num, tel) {
+  updateUtlisateur(nom, prenom, password, bank, num, tel) {
+    let pass = "aaa";
     let userId = localStorage.getItem("user_id");
+    this.http
+      .get("http://localhost:3000/api/adresses/" + userId, httpOptions)
+      .pipe(
+        map(res => {
+          let x = res.json();
+          pass = x[0].email;
+        })
+      );
+
+    console.log(userId);
 
     let contentBody = JSON.stringify({
-      email: email,
+      email: pass,
       nom: nom,
       prenom: prenom,
-      password: password,
       bank: bank,
+      password: password,
       num: num,
       tel: tel
     });
-
+    console.log(userId);
     return this.http
-      .post(
-        "http://localhost:3000/api/utilisateurs?filter[where][id]=" + userId,
+      .put(
+        "http://localhost:3000/api/utilisateurs/" + userId,
         contentBody,
         httpOptions
       )
@@ -91,6 +103,23 @@ export class utilisateurservice {
     return this.http
       .get(
         "http://localhost:3000/api/utilisateurs/" + ID + "/addresse",
+        httpOptions
+      )
+      .pipe(map(res => res));
+  }
+  addAdresseUTili(pays, ville, codepostale, add) {
+    let contentBody = JSON.stringify({
+      pays: pays,
+      ville: ville,
+      codepostale: codepostale,
+      add: add
+    });
+    let userId = localStorage.getItem("user_id");
+
+    return this.http
+      .post(
+        "http://localhost:3000/api/utilisateurs/" + userId + "/addresse",
+        contentBody,
         httpOptions
       )
       .pipe(map(res => res));
