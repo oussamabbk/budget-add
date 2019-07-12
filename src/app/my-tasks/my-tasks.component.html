@@ -11,7 +11,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table  table-sm ">
+              <table class="table  table-sm " *ngIf="dep.length > 0">
                 <!--<div class="table-responsive">-->
                 <thead class=" text-primary">
                   <th class="th-sm">
@@ -39,7 +39,35 @@
                     supprimer
                   </th>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let task of dep; let ID = index">
+                  <tr>
+                    <td>{{ ID }}</td>
+                    <td>
+                      {{ date }}
+                    </td>
+                    <td>
+                      {{ categorie }}
+                    </td>
+                    <td>
+                      {{ description }}
+                    </td>
+                    <td>
+                      {{ type }}
+                    </td>
+                    <td class="text-primary">
+                      {{ montant }}
+                    </td>
+                    <td>
+                      <div class="btn1">
+                        <i class="fa fa-wrench"></i>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="btn2">
+                        <i class="fa fa-trash"></i>
+                      </div>
+                    </td>
+                  </tr>
                   <!--<tr>
                     <td>
                       1

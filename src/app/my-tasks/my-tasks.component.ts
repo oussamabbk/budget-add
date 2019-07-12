@@ -4,6 +4,7 @@ import { TasksService } from "../shared/task.service";
 import { Response } from "@angular/http";
 import { utilisateurservice } from "../shared/utilisateur.service";
 import { DepEtRevs } from "../model/utilisateur.model";
+import { json } from "body-parser";
 
 @Component({
   selector: "my-tasks",
@@ -14,7 +15,10 @@ export class MyTasksComponent implements OnInit {
   constructor(
     private taskService: TasksService,
     private utilisateurservice: utilisateurservice
-  ) {}
+  ) {
+    this.displayDepEtRev();
+  }
+  ID: number;
   date = "";
   categorie = "";
   description = "";
@@ -29,14 +33,44 @@ export class MyTasksComponent implements OnInit {
       montant: number;
     }
   ];
-  dep: any;
+
+  dep: string[] = [];
+  page: number = 1;
+  depjson = "";
   ngOnInit() {
-    this.afficherDepEtRev();
+    /*this.afficherDepEtRev();*/
   }
   afficherDepEtRev() {
     let userId = localStorage.getItem("user_id");
     this.utilisateurservice.findDepEtRev(userId).subscribe((data: any) => {
       console.log(data);
+    });
+  }
+  displayDepEtRev() {
+    let userId = localStorage.getItem("user_id");
+    this.utilisateurservice.findDepEtRev(userId).subscribe((data: Response) => {
+      this.DepEtRevs = JSON.parse(data.text());
+      for (var x = 0; x < this.DepEtRevs.length; x++) {
+        this.dep.push(
+          this.DepEtRevs[x].date +
+            "$#" +
+            this.DepEtRevs[x].categorie +
+            "$#" +
+            this.DepEtRevs[x].description +
+            "$#" +
+            this.DepEtRevs[x].type +
+            "$#" +
+            this.DepEtRevs[x].montant
+        );
+        this.ID = x;
+        var z = JSON.stringify(this.dep);
+        this.depjson = z.substring(2, z.indexOf(",") - 1);
+        this.date = this.depjson.split("$#")[0].substring(2, 12);
+        this.categorie = this.depjson.split("$#")[1];
+        this.description = this.depjson.split("$#")[2];
+        this.type = this.depjson.split("$#")[3];
+        this.montant = this.depjson.split("$#")[4];
+      }
     });
   }
 }
