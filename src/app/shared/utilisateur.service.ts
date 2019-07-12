@@ -67,7 +67,7 @@ export class utilisateurservice {
       .post("http://localhost:3000/api/utilisateurs", contentBody, httpOptions)
       .pipe(map(res => res));
   }
-  updateUtlisateur(nom, prenom, password, bank, num, tel) {
+  updateUtlisateur(email, nom, prenom, password, bank, num, tel) {
     let pass = "aaa";
     let userId = localStorage.getItem("user_id");
     this.http
@@ -80,9 +80,10 @@ export class utilisateurservice {
       );
 
     console.log(userId);
+    console.log("aaaa", pass);
 
     let contentBody = JSON.stringify({
-      email: pass,
+      email: email,
       nom: nom,
       prenom: prenom,
       bank: bank,
@@ -120,6 +121,31 @@ export class utilisateurservice {
       .post(
         "http://localhost:3000/api/utilisateurs/" + userId + "/addresse",
         contentBody,
+        httpOptions
+      )
+      .pipe(map(res => res));
+  }
+  ajouterDepEtRev(date, categorie, description, type, montant) {
+    let contentBody = JSON.stringify({
+      date: date,
+      categorie: categorie,
+      description: description,
+      type: type,
+      montant: montant
+    });
+    let userId = localStorage.getItem("user_id");
+    return this.http
+      .post(
+        "http://localhost:3000/api/utilisateurs/" + userId + "/dep-rev",
+        contentBody,
+        httpOptions
+      )
+      .pipe(map(res => res));
+  }
+  findDepEtRev(ID) {
+    return this.http
+      .get(
+        "http://localhost:3000/api/utilisateurs/" + ID + "/dep-rev",
         httpOptions
       )
       .pipe(map(res => res));

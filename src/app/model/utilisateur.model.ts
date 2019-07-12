@@ -13,3 +13,10 @@ export interface addresse {
   codepostale: number;
   add: string;
 }
+export interface DepEtRevs {
+  date: Date;
+  categorie: string;
+  description: String;
+  type: string;
+  montant: number;
+}

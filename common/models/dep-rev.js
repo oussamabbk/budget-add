@@ -1,7 +1,3 @@
+"use strict";
 
-'use strict';
-
-module.exports = function(Deprev) {
-
-
-};
+module.exports = function(DepEtRev) {};

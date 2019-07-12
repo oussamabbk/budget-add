@@ -158,6 +158,8 @@ import { Component, OnInit, Input } from "@angular/core";
 import * as Chartist from "chartist";
 import * as moment from "moment";
 import "moment/locale/fr";
+import { Router } from "@angular/router";
+
 import { style } from "@angular/animations";
 import { utilisateurservice } from "../shared/utilisateur.service";
 import { Message } from "@angular/compiler/src/i18n/i18n_ast";
@@ -192,7 +194,10 @@ export class TimerComponent implements OnInit {
   bank;
   userId = localStorage.getItem("user_id");
 
-  constructor(private utilisateurservice: utilisateurservice) {}
+  constructor(
+    private utilisateurservice: utilisateurservice,
+    private router: Router
+  ) {}
 
   startAnimationForLineChart(chart) {
     let seq: any, delays: any, durations: any;
@@ -360,5 +365,13 @@ export class TimerComponent implements OnInit {
       let x = data.json();
       console.log(x[0].email);
     });
+  }
+  goToDep() {
+    this.router.navigate(["/dep-rev"]);
+    localStorage.setItem("DepOuRev", "dépenses");
+  }
+  goToRev() {
+    this.router.navigate(["/dep-rev"]);
+    localStorage.setItem("DepOuRev", "revenus");
   }
 }

@@ -154,8 +154,8 @@
       <button mat-fab id="add-button" data-toggle="dropdown" class="btn-circle">
         <i class="material-icons">attach_money</i>
         <div class="dropdown-menu">
-          <a class="dropdown-item ">ajouter dépenses</a>
-          <a class="dropdown-item">ajouter revenus</a>
+          <a class="dropdown-item" (click)="goToDep()">ajouter dépenses</a>
+          <a class="dropdown-item" (click)="goToRev()">ajouter revenus</a>
         </div>
       </button>
     </div>

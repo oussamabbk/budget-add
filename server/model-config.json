@@ -20,19 +20,17 @@
   "utilisateur": {
     "dataSource": "existe",
     "public": true
-        
   },
-  "compte":{
-    "dataSource":"existe",
-    "public":true
+  "compte": {
+    "dataSource": "existe",
+    "public": true
   },
-  "deprev":{
-    "dataSource":"historique",
-    "public":true
+  "DepEtRev": {
+    "dataSource": "historique",
+    "public": true
   },
-  "adresse":{
-    "dataSource":"existe",
-    "public":true
+  "adresse": {
+    "dataSource": "existe",
+    "public": true
   }
-
 }

@@ -49,13 +49,13 @@
     },
     "dep-rev": {
       "type": "hasMany",
-      "model": "deprev",
-      "deprev": "deprevId"
+      "model": "DepEtRev",
+      "DepEtRev": "DepEtRevId"
     },
     "compte": {
       "type": "hasMany",
       "model": "compte",
-      "deprev": "compteId"
+      "DepEtRev": "compteId"
     }
   },
   "acls": [],

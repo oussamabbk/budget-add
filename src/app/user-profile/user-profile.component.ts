@@ -79,6 +79,7 @@ export class UserProfileComponent implements OnInit {
 
   }*/
   updateUSer(
+    email1,
     nom1,
     prenom1,
     bank1,
@@ -101,7 +102,7 @@ export class UserProfileComponent implements OnInit {
       mdp = mdp1;
 
       const user: utilisateur = {
-        email: "iiiiiiii",
+        email: email1,
         nom: nom1,
         prenom: prenom1,
         bank: bank1,
@@ -113,6 +114,7 @@ export class UserProfileComponent implements OnInit {
 
       this.utilisateurservice
         .updateUtlisateur(
+          user.email,
           user.nom,
           user.prenom,
           user.password,

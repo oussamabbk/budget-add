@@ -1,44 +1,42 @@
-import { NgModule, Component } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule, Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { Routes, RouterModule } from "@angular/router";
 
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import{LoginComponent}from "./login/login.component";
+import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component";
+import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { from } from "rxjs";
 
-const routes: Routes =[
+const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'timer',
-    pathMatch: 'full',
-  }, 
-  {
-    path:'login',
-    component: LoginComponent,
-    
+    path: "",
+    redirectTo: "timer",
+    pathMatch: "full"
   },
   {
-    path:'register',
-    component: RegisterComponent,
+    path: "login",
+    component: LoginComponent
   },
   {
-    path: '',
+    path: "register",
+    component: RegisterComponent
+  },
+  {
+    path: "",
     component: MainLayoutComponent,
     children: [
-        {
-      path: '',
-      loadChildren: './layouts/main-layout/main-layout.module#MainLayoutModule'
-  }]}
+      {
+        path: "",
+        loadChildren:
+          "./layouts/main-layout/main-layout.module#MainLayoutModule"
+      }
+    ]
+  }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes)],
+  exports: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,51 +1,47 @@
-
-import { Component, OnInit } from '@angular/core';
-import { Task } from '../model/task.model';
-import { TasksService } from '../shared/task.service';
-import { Response } from '@angular/http';
+import { Component, OnInit } from "@angular/core";
+import { Task } from "../model/task.model";
+import { TasksService } from "../shared/task.service";
+import { Response } from "@angular/http";
+import { utilisateurservice } from "../shared/utilisateur.service";
+import { DepEtRevs } from "../model/utilisateur.model";
 
 @Component({
-  selector: 'my-tasks',
-  templateUrl: './my-tasks.component.html',
-  styleUrls: ['./my-tasks.component.css'],
+  selector: "my-tasks",
+  templateUrl: "./my-tasks.component.html",
+  styleUrls: ["./my-tasks.component.css"]
 })
 export class MyTasksComponent implements OnInit {
-
-  //task description variable
-  description = '';
-
-  //task starting time variable
-  startingtimeinput = '';
-
-  //task ending time variable
-  endingtimeinput = '';
-
-  //task duration variable
-  timespentinput = '';
-
-  // array populated with the json response
-  tasks : [{
-    description : string,
-    starttime : string,
-    endtime : string,
-    timespent : string
-  }]
-
-  // array of Tasks used while displaying tasks
-  myTask: string[] = [];
-
-  // pagination starting page
-  page: number = 1;
-
-  // Injection of our TaskService
-  constructor(private taskService : TasksService) { 
-    this.displayTasks();
-  }
-
+  constructor(
+    private taskService: TasksService,
+    private utilisateurservice: utilisateurservice
+  ) {}
+  date = "";
+  categorie = "";
+  description = "";
+  type = "";
+  montant = "";
+  DepEtRevs: [
+    {
+      date: Date;
+      categorie: string;
+      description: String;
+      type: string;
+      montant: number;
+    }
+  ];
+  dep: any;
   ngOnInit() {
+    this.afficherDepEtRev();
   }
+  afficherDepEtRev() {
+    let userId = localStorage.getItem("user_id");
+    this.utilisateurservice.findDepEtRev(userId).subscribe((data: any) => {
+      console.log(data);
+    });
+  }
+}
 
-  displayTasks(){
+/*displayTasks(){
     this.taskService.getTasks().subscribe(
       (data : Response) => {
         this.tasks = JSON.parse(data.text());
@@ -124,6 +120,36 @@ export class MyTasksComponent implements OnInit {
         alert("Can\'t save task");
       }
     );
-  }
-}
+  }*/
+/*//task description variable
+  description = "";
 
+  //task starting time variable
+  startingtimeinput = "";
+
+  //task ending time variable
+  endingtimeinput = "";
+
+  //task duration variable
+  timespentinput = "";
+
+  // array populated with the json response
+  tasks: [
+    {
+      description: string;
+      starttime: string;
+      endtime: string;
+      timespent: string;
+    }
+  ];
+
+  // array of Tasks used while displaying tasks
+  myTask: string[] = [];
+
+  // pagination starting page
+  page: number = 1;
+
+  // Injection of our TaskService
+  constructor(private taskService: TasksService) {
+    this.displayTasks();
+  }*/
