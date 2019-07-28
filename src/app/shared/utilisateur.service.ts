@@ -150,6 +150,32 @@ export class utilisateurservice {
       )
       .pipe(map(res => res));
   }
+  IdDeDepEtRev(date, categorie, description, montant) {
+    return this.http
+      .get(
+        "http://localhost:3000/api/DepEtRevs?filter[where][date]=" +
+          date +
+          "&filter[where][description]=" +
+          description +
+          "&filter[where][montant]=" +
+          montant +
+          "&filter[where][categorie]=" +
+          categorie,
+        httpOptions
+      )
+      .pipe(
+        map(res => {
+          let x = res.json();
+          localStorage.setItem("depId", x[0].id);
+        })
+      );
+  }
+  DeletDepEtRev(ID) {
+    return this.http.delete(
+      "http://localhost:3000/api/DepEtRevs/" + ID,
+      httpOptions
+    );
+  }
 }
 /* this.taskService.addTask(task.description,task.starttime,task.endtime,task.timespent).subscribe(
       (res)=>{

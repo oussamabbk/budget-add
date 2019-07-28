@@ -39,32 +39,32 @@
                     supprimer
                   </th>
                 </thead>
-                <tbody *ngFor="let task of dep; let ID = index">
+                <tbody *ngFor="let dep of dep; let ID = index">
                   <tr>
                     <td>{{ ID }}</td>
                     <td>
-                      {{ date }}
+                      {{ dep.split("$#")[0].substring(0, 10) }}
                     </td>
                     <td>
-                      {{ categorie }}
+                      {{ dep.split("$#")[1] }}
                     </td>
                     <td>
-                      {{ description }}
+                      {{ dep.split("$#")[2] }}
                     </td>
                     <td>
-                      {{ type }}
+                      {{ dep.split("$#")[3] }}
                     </td>
                     <td class="text-primary">
-                      {{ montant }}
+                      {{ dep.split("$#")[4] }}
                     </td>
                     <td>
                       <div class="btn1">
-                        <i class="fa fa-wrench"></i>
+                        <i class="fa fa-wrench" (click)="getID(ID)"></i>
                       </div>
                     </td>
                     <td>
                       <div class="btn2">
-                        <i class="fa fa-trash"></i>
+                        <i class="fa fa-trash" (click)="supprimerDep(ID)"></i>
                       </div>
                     </td>
                   </tr>

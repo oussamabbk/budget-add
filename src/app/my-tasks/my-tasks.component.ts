@@ -26,6 +26,7 @@ export class MyTasksComponent implements OnInit {
   montant = "";
   DepEtRevs: [
     {
+      id: String;
       date: Date;
       categorie: string;
       description: String;
@@ -33,6 +34,11 @@ export class MyTasksComponent implements OnInit {
       montant: number;
     }
   ];
+  da: Date;
+  ca: String;
+  de: String;
+  mo: number;
+  id: String;
 
   dep: string[] = [];
   page: number = 1;
@@ -72,6 +78,37 @@ export class MyTasksComponent implements OnInit {
         this.montant = this.depjson.split("$#")[4];
       }
     });
+  }
+  getID(ID) {
+    console.log(ID);
+    console.log();
+  }
+  supprimerDep(ID) {
+    let userId = localStorage.getItem("user_id");
+    this.utilisateurservice.findDepEtRev(userId).subscribe((data: Response) => {
+      this.DepEtRevs = JSON.parse(data.text());
+      for (var x = 0; x < this.DepEtRevs.length; x++) {
+        if (x == ID) {
+          this.da = this.DepEtRevs[x].date;
+          this.ca = this.DepEtRevs[x].categorie;
+          this.de = this.DepEtRevs[x].description;
+          this.mo = this.DepEtRevs[x].montant;
+          this.id = this.DepEtRevs[x].id;
+          console.log(this.da, this.ca, this.de, this.mo, this.id);
+          this.utilisateurservice
+            .DeletDepEtRev(this.id)
+            .subscribe((data: any) => {
+              console.log("delete ");
+              location.reload();
+            });
+        }
+      }
+    });
+    //this.utilisateurservice
+    //.IdDeDepEtRev(this.da, this.ca, this.de, this.mo)
+    //.subscribe((data: Response) => {
+    //console.log("");
+    //});
   }
 }
 
