@@ -176,6 +176,12 @@ export class utilisateurservice {
       httpOptions
     );
   }
+  findForUpdate(ID) {
+    return this.http.get(
+      "http://localhost:3000/api/DepEtRevs/" + ID,
+      httpOptions
+    );
+  }
 }
 /* this.taskService.addTask(task.description,task.starttime,task.endtime,task.timespent).subscribe(
       (res)=>{

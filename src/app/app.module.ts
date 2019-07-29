@@ -11,6 +11,7 @@ import { HttpModule } from "@angular/http";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { utilisateurservice } from "./shared/utilisateur.service";
+import { UpdaterevComponent } from "./updaterev/updaterev.component";
 
 @NgModule({
   imports: [

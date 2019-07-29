@@ -43,6 +43,9 @@ export class DepRevComponent implements OnInit {
 
   ngOnInit() {
     this.x = localStorage.getItem("DepOuRev");
+    //this.utilisateurservice
+    // .findForUpdate(this.y)
+    //.subscribe((res: any) => console.log(res));
   }
   ajouterDep(date, categorie, description, type, montant) {
     const dep: DepEtRevs = {

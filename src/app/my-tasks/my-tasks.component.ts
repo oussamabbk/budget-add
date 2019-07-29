@@ -5,6 +5,7 @@ import { Response } from "@angular/http";
 import { utilisateurservice } from "../shared/utilisateur.service";
 import { DepEtRevs } from "../model/utilisateur.model";
 import { json } from "body-parser";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "my-tasks",
@@ -14,7 +15,8 @@ import { json } from "body-parser";
 export class MyTasksComponent implements OnInit {
   constructor(
     private taskService: TasksService,
-    private utilisateurservice: utilisateurservice
+    private utilisateurservice: utilisateurservice,
+    private router: Router
   ) {
     this.displayDepEtRev();
   }
@@ -26,7 +28,7 @@ export class MyTasksComponent implements OnInit {
   montant = "";
   DepEtRevs: [
     {
-      id: String;
+      id: string;
       date: Date;
       categorie: string;
       description: String;
@@ -104,11 +106,24 @@ export class MyTasksComponent implements OnInit {
         }
       }
     });
-    //this.utilisateurservice
-    //.IdDeDepEtRev(this.da, this.ca, this.de, this.mo)
-    //.subscribe((data: Response) => {
-    //console.log("");
-    //});
+  }
+  versmodifierDep(ID) {
+    let userId = localStorage.getItem("user_id");
+    this.utilisateurservice.findDepEtRev(userId).subscribe((data: Response) => {
+      this.DepEtRevs = JSON.parse(data.text());
+      for (var x = 0; x < this.DepEtRevs.length; x++) {
+        if (x == ID) {
+          this.da = this.DepEtRevs[x].date;
+          this.ca = this.DepEtRevs[x].categorie;
+          this.de = this.DepEtRevs[x].description;
+          this.mo = this.DepEtRevs[x].montant;
+          this.id = this.DepEtRevs[x].id;
+          console.log(this.da, this.ca, this.de, this.mo, this.id);
+          localStorage.setItem("key", this.DepEtRevs[x].id);
+          this.router.navigate(["/Updatedep"]);
+        }
+      }
+    });
   }
 }
 

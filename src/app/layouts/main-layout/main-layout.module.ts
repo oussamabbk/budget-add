@@ -9,6 +9,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { TasksService } from "../../shared/task.service";
 import { HttpModule } from "@angular/http";
 import { UserProfileComponent } from "../../user-profile/user-profile.component";
+import { UpdaterevComponent } from "app/updaterev/updaterev.component";
 
 import {
   MatButtonModule,
@@ -35,7 +36,8 @@ import { DepRevComponent } from "app/depetrevenu/dep-rev.component";
     TimerComponent,
     MyTasksComponent,
     UserProfileComponent,
-    DepRevComponent
+    DepRevComponent,
+    UpdaterevComponent
   ]
 })
 export class MainLayoutModule {}
