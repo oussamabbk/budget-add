@@ -4,7 +4,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">ajouter {{ x }}</h4>
+            <h4 class="card-title">modifier {{ ty }}</h4>
             <p class="card-category">
               ------------------------------------------
             </p>
@@ -14,12 +14,24 @@
               <div class="row">
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Date" type="date" #date />
+                    <input
+                      matInput
+                      placeholder="Date"
+                      type="date"
+                      #date
+                      value="{{ da }}"
+                    />
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="type" #type />
+                    <input
+                      matInput
+                      placeholder="type"
+                      #type
+                      value="{{ ty }}"
+                      #type
+                    />
                   </mat-form-field>
                 </div>
               </div>
@@ -31,7 +43,7 @@
                       matInput
                       placeholder="categorie"
                       #categorie
-                      value="{{ x }}"
+                      value="{{ ca }}"
                     />
                   </mat-form-field>
                 </div>
@@ -41,6 +53,7 @@
                       matInput
                       placeholder="description"
                       type="text"
+                      value="{{ de }}"
                       #description
                     />
                   </mat-form-field>
@@ -51,6 +64,7 @@
                       matInput
                       placeholder="montant"
                       type="text"
+                      value="{{ mo }}"
                       #montant
                     />
                   </mat-form-field>
@@ -61,6 +75,15 @@
                 mat-raised-button
                 type="submit"
                 class="btn btn-danger pull-right"
+                (click)="
+                  updateDep(
+                    date.value,
+                    categorie.value,
+                    type.value,
+                    description.value,
+                    montant.value
+                  )
+                "
               >
                 Valider
               </button>

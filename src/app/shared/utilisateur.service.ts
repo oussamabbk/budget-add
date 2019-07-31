@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { map } from "rxjs/operators";
 import { EmailValidator } from "@angular/forms";
+import { type } from "os";
 
 // headers
 const httpOptions = {
@@ -181,6 +182,29 @@ export class utilisateurservice {
       "http://localhost:3000/api/DepEtRevs/" + ID,
       httpOptions
     );
+  }
+  getDepOuREv(ID) {
+    return this.http
+      .get("http://localhost:3000/api/DepEtRevs/" + ID, httpOptions)
+      .pipe(map(res => res));
+  }
+  updatedep(Id, userId, date, categorie, type, description, montant) {
+    let contentBody = JSON.stringify({
+      date: date,
+      categorie: categorie,
+
+      description: description,
+
+      type: type,
+      montant: montant
+    });
+    return this.http
+      .put(
+        "http://localhost:3000/api/utilisateurs/" + userId + "/dep-rev/" + Id,
+        contentBody,
+        httpOptions
+      )
+      .pipe(map(res => res));
   }
 }
 /* this.taskService.addTask(task.description,task.starttime,task.endtime,task.timespent).subscribe(

@@ -113,12 +113,8 @@ export class MyTasksComponent implements OnInit {
       this.DepEtRevs = JSON.parse(data.text());
       for (var x = 0; x < this.DepEtRevs.length; x++) {
         if (x == ID) {
-          this.da = this.DepEtRevs[x].date;
-          this.ca = this.DepEtRevs[x].categorie;
-          this.de = this.DepEtRevs[x].description;
-          this.mo = this.DepEtRevs[x].montant;
           this.id = this.DepEtRevs[x].id;
-          console.log(this.da, this.ca, this.de, this.mo, this.id);
+          console.log(this.id);
           localStorage.setItem("key", this.DepEtRevs[x].id);
           this.router.navigate(["/Updatedep"]);
         }
