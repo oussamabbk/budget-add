@@ -43,7 +43,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mongodb": "^3.8.0",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "ngx-pagination": "^3.2.0",
     "perfect-scrollbar": "1.1.0",
     "popper.js": "1.14.3",
